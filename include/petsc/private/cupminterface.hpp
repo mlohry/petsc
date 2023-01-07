@@ -152,7 +152,7 @@ struct InterfaceImpl<DeviceType::CUDA> : InterfaceBase<DeviceType::CUDA> {
   using cupmMemoryType_t        = enum cudaMemoryType;
   using cupmDim3                = dim3;
   using cupmHostFn_t            = cudaHostFn_t;
-    #if PETSC_PKG_CUDA_VERSION_GE(11, 2, 0)
+    #if 0
   using cupmMemPool_t   = cudaMemPool_t;
   using cupmMemPoolAttr = cudaMemPoolAttr;
     #else
@@ -188,7 +188,7 @@ struct InterfaceImpl<DeviceType::CUDA> : InterfaceBase<DeviceType::CUDA> {
   static const auto cupmHostAllocDefault       = cudaHostAllocDefault;
   static const auto cupmHostAllocWriteCombined = cudaHostAllocWriteCombined;
   static const auto cupmMemPoolAttrReleaseThreshold =
-    #if PETSC_PKG_CUDA_VERSION_GE(11, 2, 0)
+    #if 0
     cudaMemPoolAttrReleaseThreshold;
     #else
     cupmMemPoolAttr{0};
@@ -207,7 +207,7 @@ struct InterfaceImpl<DeviceType::CUDA> : InterfaceBase<DeviceType::CUDA> {
   PETSC_CUPM_ALIAS_FUNCTION(cupmGetDeviceFlags, cudaGetDeviceFlags)
   PETSC_CUPM_ALIAS_FUNCTION(cupmSetDeviceFlags, cudaSetDeviceFlags)
   PETSC_CUPM_ALIAS_FUNCTION(cupmPointerGetAttributes, cudaPointerGetAttributes)
-    #if PETSC_PKG_CUDA_VERSION_GE(11, 2, 0)
+    #if 0
   PETSC_CUPM_ALIAS_FUNCTION(cupmDeviceGetMemPool, cudaDeviceGetMemPool)
   PETSC_CUPM_ALIAS_FUNCTION(cupmMemPoolSetAttribute, cudaMemPoolSetAttribute)
     #else
@@ -243,7 +243,7 @@ struct InterfaceImpl<DeviceType::CUDA> : InterfaceBase<DeviceType::CUDA> {
   // memory management
   PETSC_CUPM_ALIAS_FUNCTION(cupmFree, cudaFree)
   PETSC_CUPM_ALIAS_FUNCTION(cupmMalloc, cudaMalloc)
-    #if PETSC_PKG_CUDA_VERSION_GE(11, 2, 0)
+    #if 0
   PETSC_CUPM_ALIAS_FUNCTION(cupmFreeAsync, cudaFreeAsync)
   PETSC_CUPM_ALIAS_FUNCTION(cupmMallocAsync, cudaMallocAsync)
     #else
@@ -255,7 +255,7 @@ struct InterfaceImpl<DeviceType::CUDA> : InterfaceBase<DeviceType::CUDA> {
   PETSC_CUPM_ALIAS_FUNCTION(cupmMallocHost, cudaMallocHost)
   PETSC_CUPM_ALIAS_FUNCTION(cupmFreeHost, cudaFreeHost)
   PETSC_CUPM_ALIAS_FUNCTION(cupmMemset, cudaMemset)
-    #if PETSC_PKG_CUDA_VERSION_GE(11, 2, 0)
+    #if 0
   PETSC_CUPM_ALIAS_FUNCTION(cupmMemsetAsync, cudaMemsetAsync)
     #else
   PETSC_CUPM_ALIAS_FUNCTION_GOBBLE(cupmMemsetAsync, cudaMemset, 1)
